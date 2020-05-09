@@ -1,4 +1,4 @@
 import './module';
 import './scss/index.scss';
 
-console.log('Yeeeee!')
+console.log('Yeeeee!');
