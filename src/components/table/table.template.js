@@ -3,22 +3,28 @@ const CODES = {
   Z: 90,
 };
 
-function toCell() {
+function toCell(_, index, i) {
+  const char = toChar(null, index);
   return `
-    <div class="cell" contenteditable></div>
+    <div class="cell" contenteditable data-col="${char}" data-row="${i}"></div>
   `;
 }
 
 function toColumn(char) {
   return `
-     <div class="column">${char}</div>
+     <div class="column" data-type="resizable" data-col="${char}">
+        ${char}
+       <div class="col-resize" data-resize="col"></div>
+     </div>
   `;
 }
 
 function createRow(content, index = '') {
+  const resize = index
+    ? '<div class="row-resize" data-resize="row"></div>' : '';
   return `
-    <div class="row">
-        <div class="row-info">${index}</div>
+    <div class="row" data-type="resizable" data-row="${index}">
+        <div class="row-info">${index}${resize}</div>
         <div class="row-data">${content}</div>
     </div>
   `;
@@ -42,10 +48,9 @@ export function createTable(rowsCount = 15) {
   for (let i = 0; i < rowsCount; i ++) {
     const cells = new Array(colsCount)
         .fill('')
-        .map(toCell)
+        .map((e, idx) => toCell(e, idx, i+1))
         .join('');
     rows.push(createRow(cells, i + 1));
   }
-  // // console.log('rows', rows.join(''));
   return rows.join('');
 }
