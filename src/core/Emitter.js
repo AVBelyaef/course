@@ -21,10 +21,11 @@ export class Emitter {
   }
 }
 
-const emitter = new Emitter();
+// const emitter = new Emitter();
 
-const unSub = emitter.subscribe('Test', (data) => console.log('Sub: ', data));
-emitter.emit('Test', 'ok');
-unSub();
-emitter.emit('Test', 'ok');
+// const unSub = emitter
+// .subscribe('Test', (data) => console.log('Sub: ', data));
+// emitter.emit('Test', 'ok');
+// unSub();
+// emitter.emit('Test', 'ok');
 

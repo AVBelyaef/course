@@ -9,12 +9,8 @@ export class DomListener {
     this.listeners = listeners;
   }
   initDOMListeners() {
-    // console.log(this.$root, this.listeners);
     this.listeners.forEach((listener) => {
-      // console.log(listener);
-      // console.log('this', this);
       const method = getMethodName(listener);
-      // console.log('method', method);
       if (!this[method]) {
         const name = this.name || '';
         throw new Error(
@@ -26,7 +22,6 @@ export class DomListener {
     });
   }
   removeDOMListeners() {
-    console.log('removeDOM');
     this.listeners.forEach((listener) => {
       const method = getMethodName(listener);
       this.$root.off(listener, this[method]);
