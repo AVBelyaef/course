@@ -3,11 +3,13 @@
   "env": {
     "es6": true,
     "browser": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
   "rules": {
     "require-jsdoc" : 0,
     "operator-linebreak": "off"
   },
+  "plugins": ["jest"],
   "extends": ["eslint:recommended", "google"]
 }
