@@ -92,10 +92,5 @@ export class Table extends ExcelComponent {
   }
   onInput(event) {
     this.updateTextInStore($(event.target).text());
-    // this.$emit('table:input', $(event.target));
-    // this.$dispatch(actions.changeText({
-    //   id: this.selection.current.id(),
-    //   value: $(event.target).text(),
-    // }));
   }
 }
